@@ -1,6 +1,6 @@
 # VacinaFácil
 
-![Texto Alternativo](extenção)
+![Texto Alternativo](extensão.png)
 
 ## Sobre o VacinaFácil
 Esse projeto foi desenvolvido com o intuito de concientizar as pessoas sobre a importancia de se vacinar, tendo funcionalidade de marcar datas de vacinas e lembrar o usuário quando ele deve tomar-lá com um lembrete enviado por email
