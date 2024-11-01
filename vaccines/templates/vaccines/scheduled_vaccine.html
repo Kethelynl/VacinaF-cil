@@ -1,0 +1,57 @@
+{% extends 'vaccines/base.html' %}
+{% load static %}
+
+{% block link %}
+  <link rel="stylesheet" href="{% static 'base/list.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="list_conteiner">
+  <div class="title_list_vaccine">
+      <h3>Vacinas marcadas de</h3>
+      <hr>
+      <h3>{{ user.username }}</h3>
+  </div>
+  <div>
+    <a href="{% url 'form-scheduled-vacina' %}" class="btn btn-primary">Marcar ++</a>
+  </div>
+  {% if page_obj %}
+
+    <div class="cart-vaccine-about">
+      {% for  marcacao in page_obj %}
+        <li class="card">
+            <strong class="title-cart"> {{ marcacao.vaccines.name_vacinne }}  {{ vacina.next_dose }}</strong><br>
+            <strong class="age_card">Grupo Etário:</strong> {{ marcacao.vaccines.age_group }}<br>
+            <strong class="doses_card">doses:</strong> {{ marcacao.vaccines.doses }} 
+            <strong class="description_card">{{ marcacao.vaccines.description }}</strong><br> <!-- Supondo que há um campo de data -->
+            <div class="container-btn">
+              <a href="{% url 'list-vaccines' %}" class="btn btn-primary">Ler mais</a>
+            </div>
+        </li>
+     {% endfor %}
+    </div>
+    <div class="btn-conatiner">
+      {% if page_obj.has_other_pages %}
+          {% if page_obj.has_previous %}
+              <a class="link abtn" href="?page=1{% if query %}&search={{ query }}{% endif %}">First</a>
+              <a class="link abtn" href="?page={{ page_obj.previous_page_number }}{% if query %}&search={{ query }}{% endif %}">Previous</a>
+          {% endif %}
+
+      {% for num in page_obj.paginator.page_range %}
+          {% if page_obj.number == num %}
+              <a class="link abtn2" href="?page={{ num }}{% if query %}&search={{ query }}{% endif %}">{{ num }}</a>
+          {% elif num > page_obj.number|add:'-3' and num < page_obj.number|add:'3' %}
+              <a class="link abtn2" href="?page={{ num }}{% if query %}&search={{ query }}{% endif %}">{{ num }}</a>
+          {% endif %}
+      {% endfor %}
+
+      {% if page_obj.has_next %}
+          <a class="link abtn" href="?page={{ page_obj.next_page_number }}{% if query %}&search={{ query }}{% endif %}">Next</a>
+          <a class="link abtn" href="?page={{ page_obj.paginator.num_pages }}{% if query %}&search={{ query }}{% endif %}">Last</a>
+      {% endif %}
+{% endif %}
+{% else %}
+<p class="description_card">Nenhuma vacina encontrada.</p>
+{% endif %}
+</div>
+{% endblock %}

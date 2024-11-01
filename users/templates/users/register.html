@@ -1,0 +1,50 @@
+{% extends 'vaccines/base.html' %}
+{% load static %}
+
+{% block link %}
+ <link rel="stylesheet" href="{% static 'base/formulario.css'%}">
+{% endblock %}
+
+{% block content %}
+<div class="container_formulario">
+   <div class="content-section">
+     <div class="title_form">
+       <h2>Cadastre-se</h2>
+     </div>
+      <form method="POST" class="formulario_class">
+        {% csrf_token %}
+
+        {{ form.username.label_tag }} {{ form.username }}
+        {% if form.username.errors %}
+            <div class="error">{{ form.username.errors.0 }}</div>
+        {% endif %}
+        
+        {{ form.password1.label_tag }} {{ form.password1 }}
+        {% if form.password1.errors %}
+            <div class="error">{{ form.password1.errors.0 }}</div>
+        {% endif %}
+        
+        {{ form.password2.label_tag }} {{ form.password2 }}
+        {% if form.password2.errors %}
+            <div class="error">{{ form.password2.errors.0 }}</div>
+        {% endif %}
+        
+        {{ form.email.label_tag }} {{ form.email }}
+        {% if form.email.errors %}
+            <div class="error">{{ form.email.errors.0 }}</div>
+        {% endif %}
+        
+        <button type="submit" class="btn btn-primary">Registrar</button>
+     </form>
+     <div class="border-top pt-3">
+      <small class="text-muted">
+        tem uma conta? <a href="{% url 'login' %}" class="ml-2">Entrar</a>
+      </small>
+     </div>
+  </div>
+  <div class="img_formulario">
+    <img src="{% static 'base/img/banner3.webp'%}" alt="">
+  </div>
+</div>
+  
+{% endblock %}

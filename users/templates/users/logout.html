@@ -1,0 +1,15 @@
+{% extends 'vaccines/base.html' %}
+{% load static %}
+
+{% block link %}
+ <link rel="stylesheet" href="{% static 'base/formulario.css'%}">
+{% endblock %}
+
+{% block content %}
+    <h3 class="title_form">Você está desconectado</h3>
+    <div class="border-top pt-3">
+        <small class="text-muted">
+           <a href="{% url 'login' %}" class="btn btn-primary"> Conectar-se novamente </a>
+        </small>
+    </div>
+{% endblock %}

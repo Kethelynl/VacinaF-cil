@@ -1,0 +1,31 @@
+{% extends 'vaccines/base.html' %}
+{% load static %}
+
+{% block link %}
+  <link rel="stylesheet" href="{% static 'base/list.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="cart-vaccine-about">
+    <div class="card-detail">
+        <div class="title_list_vaccine2">
+            <h1>{{ object.name_vacinne }}</h1>
+            <hr>
+        </div>
+        {% if request.user.is_staff %}
+        <div class="btn-two">
+            <a href="{% url 'vaccine-update' object.id %}" class="btn btn-primary">Editar</a>
+            <a href="{% url 'vaccine-delete' object.id %}" class="btn btn-danger">Excluir</a>
+        </div>
+        {% endif %}
+        <div class="info">
+            <p>IDADE PARA TOMAR: {{ object.age_group}}</p>
+            <p>QUANTIDADE DE DOSES: {{ object.doses }}</p>
+        </div>
+        <div class="content">
+            <p>{{ object.description }}</p>
+        </div>
+        <a class="btn btn-primary" href="{% url 'list-vaccines' %}">Voltar</a>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,172 @@
+main{
+    width: 100%;
+}
+
+.list_conteiner{
+    width: 100%;
+    min-height: 50vh;
+
+    display: flex;
+    flex-direction: column;
+
+    align-items: center;
+    justify-content: center;
+
+}
+
+.title_list_vaccine h3{
+    color: #006270;
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    text-align: center;
+
+}
+
+.title_list_vaccine hr{
+    border: solid 1px #aaaab3;
+    width: 100%;
+    position: absolute;
+    left: 0;
+}
+
+.title_list_vaccine2 h1{
+    color: #006270;
+    font-weight: bold;
+    margin-bottom: 20px;
+    margin-top: 20px;
+}
+
+.info p{
+    color: red;
+    margin-bottom: 20px;
+}
+
+.content p{
+    color: #3c3c3f;
+    padding: 6px 16px 6px;
+    margin-bottom: 10px;
+}
+
+.btn{
+    margin-bottom: 10px;
+}
+
+.search_input{
+    width: 100%;
+    padding: 5px 20px 5px;
+    border: solid 1px #009394;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+.search_input:hover{
+    background-color: aliceblue;
+}
+
+.form_search{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.cart-vaccine-about{
+    display: flex;           
+    flex-wrap: wrap;        
+    gap: 16px;              
+    justify-content: center; 
+    padding: 16px;
+    
+}
+
+.card {
+    background-color: #f2f2f2;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    width: 300px;
+    padding: 16px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    height: 250px;   
+    position: relative;  
+    overflow: hidden;     
+}
+
+.card-detail{
+    width: 80%;
+    height: auto;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    background-color: #f2f2f2;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    align-items: center;
+    text-align: center;
+}
+
+.container-btn{
+    width: 100%;
+    height: 10vh;
+    background-color: #006270;
+    left: 0;
+    position: absolute;
+    top: 250px;
+}
+
+.title-cart{
+    color: #006270;
+    font-size: 20px;
+}
+
+.age_card{
+    color:  #00e0c7;
+}
+
+.doses_card{
+    color: #009394;
+}
+
+.description_card{
+    color: rgb(51, 52, 53);
+}
+
+.btn-two{
+    display: flex;
+    gap: 30px;
+}
+
+.link{
+    color: #009394;
+    font-weight: bold;
+}
+
+.link:hover{
+    color: #00e0c7;
+}
+
+.abtn{
+    background-color: #006270;
+    border-radius: 5px;
+    padding: 3px;
+}
+
+.abtn2{
+    background-color: #006270;
+    border-radius: 40%;
+    padding: 5px 15px 5px;
+}
+
+.btn-conatiner{
+    
+    bottom: 0;
+    margin-bottom: 10px;
+}
+
+.description_card{
+    margin-top: 40px;
+    color: #535657;
+}

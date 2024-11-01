@@ -1,0 +1,33 @@
+{% extends 'vaccines/base.html' %}
+{% load static %}
+
+{% block link %}
+ <link rel="stylesheet" href="{% static 'base/formulario.css'%}">
+{% endblock %}
+
+{% block content %}
+
+<div class="container_formulario">
+  <div class="content-section">
+    <div class="title_form">
+      <h2>Marca data de vacina</h2>
+    </div>
+    <form method="post" class="formulario_class">
+        {% csrf_token %}
+
+        <label for="name_vacinne">Nome da Vacina:</label>
+        {{form.vaccines}}
+
+
+        <label for="age_group">Última dose:</label>
+        {{form.last_date}}
+
+        <label for="doses">Data da Próxima:</label>
+        {{form.next_dose}}
+
+        <button type="submit" class="btn btn-primary">Marcar</button>
+    </form>
+  </div>
+</div>
+
+{% endblock%}

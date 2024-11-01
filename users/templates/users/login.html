@@ -1,0 +1,47 @@
+{% extends 'vaccines/base.html' %}
+{% load static %}
+
+
+{% block link %}
+ <link rel="stylesheet" href="{% static 'base/formulario.css'%}">
+{% endblock %}
+
+{% block content %}
+  <div class="container_formulario">
+    <div class="img_formulario">
+      <img src="{% static 'base/img/banner2.webp'%}" alt="">
+    </div>
+   <div class="content-section">  
+      <div class="title_form">
+        <h2>Entrar</h2>
+      </div>
+      <form method="POST" class="formulario_class">
+          {% csrf_token %}
+          {{ form.username.label_tag }} {{ form.username }}
+          {% if form.username.errors %}
+              <div class="error">{{ form.username.errors.0 }}</div>
+          {% endif %}
+          
+          {{ form.password.label_tag }} {{ form.password }}
+          {% if form.password.errors %}
+              <div class="error">{{ form.password.errors.0 }}</div>
+          {% endif %}
+          
+          <button type="submit" class="btn btn-primary">Entrar</button>
+      </form>
+      
+      {% if form.non_field_errors %}
+          <div class="error">
+              {% for error in form.non_field_errors %}
+                  <p>{{ error }}</p>
+              {% endfor %}
+          </div>
+      {% endif %}
+      <div class="border-top pt-3">
+          <small class="text-muted">
+            precisa de uma conta? <a href="{% url 'register' %}" class="ml-2">cadastrar-se</a>
+          </small>
+      </div>
+   </div>
+  </div>
+{% endblock %}

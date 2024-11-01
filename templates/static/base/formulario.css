@@ -1,0 +1,170 @@
+main{
+    width: 100%;
+    min-height: 90vh;
+    
+    
+    display: flex;
+    flex-direction: column;
+
+    align-items: center;
+    justify-content: center;
+
+    background-color: #005691;
+    overflow: hidden;
+}
+
+.media{
+    margin-top: 30px;
+    text-align: center;
+}
+
+.form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.container_formulario{
+    width: 70%;
+    height: 60vh;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+
+    border-radius: 5px;
+    padding: 10px 0px 10px;
+
+    background-color: #dfe3ec;
+}
+
+.img_formulario{
+    width: 50%;
+    height: 60vh;
+}
+
+.img_formulario img{
+    width: 100%;
+    height: 60vh;
+}
+
+.content-section{
+    width: 50%;
+    margin-top: 40px;
+
+    margin: 4px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.content-section2{
+    background-color: #dadbdd;
+    width: 50%;
+    height:auto;
+    border-radius: 4px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: solid 1px #adaeaf;
+    
+}
+
+.formulario_class{
+    display: flex;
+    flex-direction: column;
+
+    width: 80%;
+}
+
+.formulario_class input{
+    padding: 5px 10px 5px;
+    border: solid 1px #009394;
+    border-radius: 5px;
+}
+
+.formulario_class input:hover{
+    background-color: #f4f5f7;
+}
+
+.formulario_class label, .title_form h2{
+    color: #006270;
+}
+
+.btn-primary{
+    margin-top: 30px;
+}
+
+textarea {
+    width: 100%; /* Largura total do campo */
+    padding: 5px 0px 50px; 
+    margin-bottom: 20px; /* Espaçamento abaixo dos campos */
+    font-size: 13px; /* Tamanho da fonte */
+}
+
+/* Para celulares em modo retrato */
+@media (max-width: 480px) {
+    /* Estilos para celular */
+    .img_formulario{
+        display: none;
+    }
+
+    .container_formulario{
+        height: auto;
+        overflow-y: scroll;
+        width: 90%;
+
+        padding: 10px 5px 10px;
+    }
+
+    .formulario_class{
+        width: 100%;
+    }
+  }
+
+/* Para celulares grandes e tablets em modo retrato */
+@media (min-width: 481px) and (max-width: 768px) {
+    /* Estilos para tablets e celulares grandes */
+
+    .img_formulario{
+        display: none;
+    }
+
+    .container_formulario{
+        height: auto;
+        overflow-y: scroll;
+    }
+
+    .formulario_class{ 
+        width: 100%;
+    }
+    
+}
+
+/* Para tablets em modo paisagem e telas de notebooks pequenas */
+@media (min-width: 769px) and (max-width: 1024px) {
+    /* Estilos para tablets em paisagem e notebooks pequenos */
+    .container_formulario{
+        height: auto;
+        overflow-y: scroll;
+    }
+
+    .img_formulario{
+        height: auto;
+    }
+
+    .container_formulario{
+        height: auto;
+        overflow-y: scroll;
+    }
+  }
+  
+  /* Para notebooks e telas maiores */
+@media (min-width: 1025px) {
+    /* Estilos para notebooks e desktops */
+    .container_formulario{
+        height: auto;
+    }
+  }

@@ -1,0 +1,55 @@
+{% extends 'vaccines/base.html' %}
+{% load static %}
+{% block link %}
+ <link rel="stylesheet" href="{% static 'base/profile.css'%}">
+{% endblock %}
+
+{% block content %}
+   <h2 class="text">Bem vindo!! {{user.username}}</h2>
+
+   <div class="content-section">
+      <div class="topics">
+         <div>
+            <h4 class='subtitle-topic'>Onde acessar todas as funções?</h4>
+            <p class='text-topic'>No topo desse site terá alguns nomes que serão citados nesse documento, para acessar basta cricar e será encaminhado para lá.</p>
+         </div>
+         <div>
+            <h4 class='subtitle-topic'>Perfil</h4>
+            <p class='text-topic'>No seu perfil você poderá atualizar suas informações de acesso.</p>
+         </div>
+         <div>
+            <h4 class='subtitle-topic'>calendário</h4>
+            <p class='text-topic'>No seu calendário ficará exposto todas as vacinas que você marcou, mesmo depois de já ter tomado</p>
+         </div>
+         <div>
+            <h4 class='subtitle-topic'>Vacinas</h4>
+            <p class='text-topic'>Aqui você pode ver todas as vacinas registradas no sistema, sua faixa etária, quantas doses e uma descrição sobre o que a vacina faz.</p>
+         </div>
+         <div>
+            <h4 class='subtitle-topic'>Marcar</h4>
+            <p class='text-topic'>Você poderá escolher a vacina que irá tomar e a data, depois disso o sitema se encarrega de te lembrar no dia marcado</p>
+         </div>
+      </div>
+      <div class="media">
+         <p>Atualize seus dados aqui! quando preciso.</p>
+         <p>{{user.email}}</p>
+      </div>
+
+      <div class="form">
+         <form method="post" class="formulario_class form">
+            {% csrf_token %}
+            {{ u_form.username.label_tag }} {{ u_form.username }}
+            {% if form.username.errors %}
+                  <div class="error">{{ form.username.errors.0 }}</div>
+            {% endif %}
+
+            {{ u_form.email.label_tag }} {{ u_form.email }}
+            {% if form.email.errors %}
+                  <div class="error">{{ form.email.errors.0 }}</div>
+            {% endif %}
+            <button type="submit" class="btn btn-primary">Atualizar</button>
+         </form>
+      </div>
+   </div>
+
+{% endblock %}

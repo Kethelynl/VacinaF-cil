@@ -1,0 +1,22 @@
+{% extends 'vaccines/base.html' %}
+{% load static %}
+
+{% block link %}
+ <link rel="stylesheet" href="{% static 'base/formulario.css'%}">
+{% endblock %}
+
+{% block content %}
+   <div class="container_formulario">
+      <form method="post" class="formulario_class">
+        {% csrf_token %}
+        <fieldset class="form-group">
+            <legend class="title_form">Apagar Post</legend>
+            <h2>Você tem certeza que deseja apagar? "{{object.name_vacinne}}"</h2>
+        </fieldset>
+        <div class="form-group">
+            <button class="btn btn-danger" type="submit">Yes, Delete</button>
+            <a class="btn btn-outline-light" href="{% url 'vaccine-detail' object.id %}">Cancel</a>
+        </div>
+      </form>
+   </div>
+{% endblock %}

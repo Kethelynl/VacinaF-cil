@@ -1,0 +1,66 @@
+{% extends 'vaccines/base.html' %}
+{% load static %}
+
+{% block link %}
+  <link rel="stylesheet" href="{% static 'base/list.css' %}">
+{% endblock %}
+
+{% block content %}
+   <div class="list_conteiner">
+        <div class="title_list_vaccine">
+            <h3>Registro de Vacinas existentes</h3>
+        </div>
+                <!-- listar_vacinas.html -->
+        <form method="get" action="{% url 'list-vaccines' %}" class="form_search">
+            <input type="text" name="search" placeholder="Pesquisar vacina" value="{{ query }}" class="search_input">
+            <button type="submit" class="btn btn-outline-light">Buscar</button>
+        </form>
+
+        {% if request.user.is_staff %}
+          <a href="{% url 'register-vaccine' %}" class="admin_config-btn btn btn-primary">Adicionar +</a>
+        {% endif %}
+        <hr>
+
+        {% if page_obj %}
+            <div class="cart-vaccine-about">
+                {% for vaccine in page_obj %}
+                    <ul class="card">
+                        <strong><a href="{% url 'vaccine-detail' vaccine.id %}" class="title-cart">{{ vaccine.name_vacinne }}</a></strong>
+                        <p class="age_card">{{ vaccine.age_group }}</p>
+                        <p class="doses_card">Doses: {{ vaccine.doses }}</p>
+                        <p class="description_card">{{ vaccine.description }}</p>
+                        <div class="container-btn">
+                            <a href="{% url 'vaccine-detail' vaccine.id %}" class="btn btn-primary">Ler mais</a>
+                        </div>
+                    </ul>
+                {% endfor %}
+            </div>
+                
+                <div class="btn-conatiner">
+                    {% if page_obj.has_other_pages %}
+                        {% if page_obj.has_previous %}
+                            <a class="link abtn" href="?page=1{% if query %}&search={{ query }}{% endif %}">First</a>
+                            <a class="link abtn" href="?page={{ page_obj.previous_page_number }}{% if query %}&search={{ query }}{% endif %}">Previous</a>
+                        {% endif %}
+            
+                    {% for num in page_obj.paginator.page_range %}
+                        {% if page_obj.number == num %}
+                            <a class="link abtn2" href="?page={{ num }}{% if query %}&search={{ query }}{% endif %}">{{ num }}</a>
+                        {% elif num > page_obj.number|add:'-3' and num < page_obj.number|add:'3' %}
+                            <a class="link abtn2" href="?page={{ num }}{% if query %}&search={{ query }}{% endif %}">{{ num }}</a>
+                        {% endif %}
+                    {% endfor %}
+            
+                    {% if page_obj.has_next %}
+                        <a class="link abtn" href="?page={{ page_obj.next_page_number }}{% if query %}&search={{ query }}{% endif %}">Next</a>
+                        <a class="link abtn" href="?page={{ page_obj.paginator.num_pages }}{% if query %}&search={{ query }}{% endif %}">Last</a>
+                    {% endif %}
+            {% endif %}
+        {% else %}
+         <p class="description_card">Nenhuma vacina encontrada.</p>
+        {% endif %}
+        </div>
+        
+   </div>
+
+{% endblock %}
